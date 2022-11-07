@@ -1,28 +1,19 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-
-  <h1 class="font-bold underline text-blue-700">Teste</h1>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<template>
+  <h1 class="uppercase underline">Test</h1>
+  <nav>
+    <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
+    <router-link to="/contact">Contact</router-link>
+  </nav>
+  <main>
+    <router-view />
+  </main>
+</template>
+
+<style scoped>
+
 </style>
