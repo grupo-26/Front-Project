@@ -71,4 +71,5 @@
   @apply mb-5;
 }
 
+
 </style>

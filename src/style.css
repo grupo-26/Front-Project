@@ -13,7 +13,9 @@
 }
 
 .heading-secondary {
-  @apply uppercase text-xl font-sans;
+  font-size: 1.25rem;
+
+  @apply uppercase font-sans;
 }
 
 /* Components */
