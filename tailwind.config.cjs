@@ -6,10 +6,15 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Raleway", "sans-serif"],
-      serif: ["Lora", "serif"]
+      sans: ["Roboto", "sans-serif"],
+      serif: ["Times New Roman", "serif"]
     },
-    extend: {},
+    extend: {
+      colors: {
+        'white': '#F5F5F5',
+        'white-gray': '#EDEDED',
+      },
+    },
   },
   plugins: [],
 }
