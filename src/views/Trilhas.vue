@@ -1,5 +1,5 @@
 <script>
-
+    console.log("Trilhas");
 </script>
 
 <template>
