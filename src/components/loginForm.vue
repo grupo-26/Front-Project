@@ -1,40 +1,40 @@
-<template> 
-  <div class="login">  
-    <form class="login__form" @submit="loginHandler" > 
-      
+<template>
+  <div class="login">
+    <form class="login__form" @submit="loginHandler">
       <div class="logo-box">
-        <img src="../assets/images/logo.png" alt="">
+        <img src="../assets/images/logo.png" alt="" />
       </div>
 
-      <input 
-        class="login__input" 
-        id="email" 
-        type="email" 
-        v-model="email" 
+      <input
+        class="login__input"
+        id="email"
+        type="email"
+        v-model="email"
         autocomplete="off"
         aria-label="campo de email"
         placeholder="email"
-        /> 
+      />
 
-      <input class="login__input" 
-        id="password" 
-        type="password" 
+      <input
+        class="login__input"
+        id="password"
+        type="password"
         v-model="password"
         aria-label="campo de senha"
         placeholder="senha"
-        /> 
+      />
 
       <a href="#" class="login__link">Esqueceu sua senha?</a>
-      
+
       <button class="btn btn--black">Entrar</button>
 
-      <a href="#" class="register-link">&lt; Quero me cadastrar &gt;</a>   
+      <a href="#" class="register-link">&lt; Quero me cadastrar &gt;</a>
     </form>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 
 export default {
   name: "LoginForm",
@@ -45,27 +45,27 @@ export default {
     }
   },
   methods: {
-    loginHandler: function(evt) {
-      evt.preventDefault();
-      
+    loginHandler: function (evt) {
+      evt.preventDefault()
+
       axios({
         method: "post",
         url: "http://localhost:8080/user/login",
         data: {
           email: this.email,
-          password: this.password
-        }
+          password: this.password,
+        },
       })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log("Data: " + error.response.data);
-          console.log("Status: " + error.response.status);
-          console.log("Headers: " + error.response.headers);
-        }
-      })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log("Data: " + error.response.data)
+            console.log("Status: " + error.response.status)
+            console.log("Headers: " + error.response.headers)
+          }
+        })
     },
   },
 }
@@ -75,11 +75,10 @@ export default {
 .login {
   @apply flex flex-row justify-center items-center;
   @apply min-h-screen;
-
 }
 
 .login__form {
-  @apply block; 
+  @apply block;
 
   @apply bg-white;
 
@@ -104,7 +103,7 @@ export default {
   @apply font-bold font-sans text-black text-sm;
 }
 
-.login__input:not(:last-of-type){
+.login__input:not(:last-of-type) {
   @apply mb-5;
 }
 
