@@ -25,15 +25,28 @@
 
     <div class="mt-[23px]">
         <h2 class="text-title-1 font-bold text-center mb-[23px]">Escolha sua trilha</h2>
-        <ListCourses 
+        <div class="courses-wrap">
+            <ListCourses 
             v-for="course in courses"
             :key="course.id"
             :title="course.title"
             :percentage="course.percentage"
-            class="mb-[34px]"
+            class="mb-[34px] course"
         >
-
         </ListCourses>
+        </div>
     </div>
     
 </template>
+
+<style>
+
+.course:nth-child(3n + 3) .course__content .course__content-bg {
+    background-color: #F956CE;
+}
+
+.course:nth-child(3n + 2) .course__content .course__content-bg {
+    background-color: #00D6AC;
+}
+
+</style>
