@@ -16,5 +16,9 @@ export default createRouter({
       path: '/login',
       component: () => import('@/views/Login.vue'),
     },
+    {
+      path: '/trilhas',
+      component: () => import('@/views/Trilhas.vue'),
+    },
   ],
 })
