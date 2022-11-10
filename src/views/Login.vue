@@ -26,7 +26,7 @@
   background-image: linear-gradient(90deg, 
   rgba(255,255,255,0.5) 0%, 
   rgba(249,115,22,0.5) 100%),
-  url("../../assets/images/bg-login.jpg");
+  url("../assets/images/bg-login.jpg");
   @apply bg-cover bg-center;
 }
 
