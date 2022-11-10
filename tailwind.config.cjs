@@ -6,8 +6,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Raleway", "sans-serif"],
-      serif: ["Lora", "serif"]
+      sans: ["Roboto", "sans-serif"],
+      serif: ["Times New Roman", "serif"]
     },
     fontSize: {
       //title 20px;
@@ -17,7 +17,12 @@ module.exports = {
       'xl:': '1.25rem',
       '3xl': '1.953rem',
     },
-    extend: {},
+    extend: {
+      colors: {
+        'white': '#F5F5F5',
+        'white-gray': '#EDEDED',
+      },
+    },
   },
   plugins: [
   ],
