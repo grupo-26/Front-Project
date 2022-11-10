@@ -1,7 +1,17 @@
+<script>
+
+</script>
+
 <template>
     <div class="flex justify-between pt-9">
-        <a href="#">Voltar</a>
+        <div v-if="this.$route.path == '/trilhas'">
+            <router-link to="/" class="text-[12px]">Voltar</router-link>
+        </div>
+
         <img src="../../assets/images/logo.png">
-        <a href="#">Avançar</a>
+
+        <div v-if="this.$route.path == '/trilhas'">
+            <router-link to="/about" class="text-[12px]">Avançar</router-link>
+        </div>
     </div>
 </template>

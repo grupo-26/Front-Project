@@ -22,4 +22,5 @@ export default {
     @apply md:bg-black;
   }
 
+
 </style>

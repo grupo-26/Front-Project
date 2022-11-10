@@ -6,14 +6,17 @@
 /* Typography */
 
 .heading-primary {
-  @apply text-orange-500;
+  /* @apply text-orange-500; */
+  color: #f97316;
 
   /* Font */
   @apply text-3xl font-serif tracking-wide;
 }
 
 .heading-secondary {
-  @apply uppercase text-xl font-sans;
+  font-size: 1.25rem;
+
+  @apply uppercase font-sans;
 }
 
 /* Components */
@@ -42,7 +45,12 @@
 }
 
 .btn--orange {
+  /*
   @apply bg-orange-500 text-white; 
+  */
+  
+  color: white;
+  background-color: #f97316;
 
   @apply px-14;
   @apply rounded-3xl; 
