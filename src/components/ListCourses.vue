@@ -17,11 +17,19 @@ axios
 </script>
 
 <template>
-    <div>
-        <div class="w-[287px] h-[195px] bg-[#EDEDED]">img</div>
+    <div class="w-[287px]">
+        <div class="bg-[#EDEDED] h-[195px]">img</div>
         <div>
-          <p> Título: {{title}} </p>
-          <p> Porcentagem: {{percentage}} % concluido </p>
+          <div class="bg-[#8C0DAD] pl-4 mb-[23px]">
+            <div class="px-[24px] pt-[15px] pb-[15px] bg-black">
+              <p class="title-2 text-white font-bold"> {{title}} </p>
+            </div>
+          </div>
+
+          
+          <div>
+            <p> Porcentagem: {{percentage}} % concluido </p>
+          </div>
         </div>
     </div>
 </template>

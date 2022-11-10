@@ -23,13 +23,14 @@
 <template>
     <Header />
 
-    <div>
-        <h2 class="text-title-1 font-bold">Escolha sua trilha</h2>
+    <div class="mt-[23px]">
+        <h2 class="text-title-1 font-bold text-center mb-[23px]">Escolha sua trilha</h2>
         <ListCourses 
             v-for="course in courses"
             :key="course.id"
             :title="course.title"
             :percentage="course.percentage"
+            class="mb-[34px]"
         >
 
         </ListCourses>
