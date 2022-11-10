@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -25,5 +26,12 @@ module.exports = {
     },
   },
   plugins: [
+    plugin(function ({ addComponents, theme }) {
+      addComponents({
+        '.btn--black': {
+          backgroundColor: theme('colors.black'),
+        }
+      })
+    })
   ],
 }
