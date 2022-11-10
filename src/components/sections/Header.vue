@@ -11,7 +11,9 @@
         <img src="../../assets/images/logo.png">
 
         <div v-if="this.$route.path == '/trilhas'">
-            <router-link to="/about" class="text-[12px]">Avançar</router-link>
+            <router-link to="/" class="text-[12px]">
+                <img src="../../assets/images/hamburguer.png">
+            </router-link>
         </div>
     </div>
 </template>
