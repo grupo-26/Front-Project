@@ -24,14 +24,14 @@
     <Header />
 
     <div class="mt-[23px]">
-        <h2 class="text-title-1 font-bold text-center mb-[23px] inter">Escolha sua trilha</h2>
-        <div class="courses-wrap flex flex-col items-center">
+        <h2 class="text-title-1 font-bold text-center mb-[23px] inter lg:hidden">Escolha sua trilha</h2>
+        <div class="courses-wrap">
             <ListCourses 
             v-for="course in courses"
             :key="course.id"
             :title="course.title"
             :percentage="course.percentage"
-            class="mb-[34px] course"
+            class="course"
         >
         </ListCourses>
         </div>
@@ -49,4 +49,27 @@
     background-color: #00D6AC;
 }
 
+.courses-wrap {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    row-gap: 34px;
+}
+
+@media screen and (min-width:768px) {
+
+  .courses-wrap {
+    grid-template-columns: auto auto;
+    column-gap: 40px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+
+  .courses-wrap {
+    grid-template-columns: auto auto auto;
+    column-gap: 40px;
+    row-gap: 58px;
+  }
+}
 </style>
