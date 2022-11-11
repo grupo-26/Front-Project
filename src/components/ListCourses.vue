@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'listCourses',
   props: ['id', 'title', 'percentage'],
   computed: {
     percent() {
@@ -7,18 +8,18 @@ export default {
     }, 
   },
 }
-
+/*
 import axios from "axios";
 
 axios
-  .get("https://api.github.com/users/wkfilipedavi")
+  .get("http://localhost:8080/courses")
   .then((res) => {
           console.log(res.data)
   })
   .catch((error) => {
           console.log(error);
   });
-
+*/
 </script>
 
 <template>

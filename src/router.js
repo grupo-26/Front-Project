@@ -21,7 +21,7 @@ export default createRouter({
       component: () => import('@/views/Trilhas.vue'),
     },
     {
-      path: '/course/:id',
+      path: '/course/:stack',
       component: () => import('@/views/Course.vue'),
     },
   ],

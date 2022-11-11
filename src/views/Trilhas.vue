@@ -1,13 +1,14 @@
 <script>
     import ListCourses from '../components/ListCourses.vue';
-import router from '../router';
+    import router from '../router';
+    import axios from "axios";
 
     export default {
         components: {
           ListCourses
         },
         data() {
-            return {
+            return { /*
                 courses: [
                     {id: 1, title: "Desenvolvimento Full Stack", percentage: 50.25 },
                     {id: 2, title: "UX/UI Design", percentage: 40 },
@@ -15,14 +16,31 @@ import router from '../router';
                     {id: 4, title: "Dev Front-end", percentage: 10 },
                     {id: 5, title: "Dev Back-end", percentage: 5 },
                     {id: 6, title: "Redes", percentage: 90 },
-                ]
+                ],*/
+
+                coursesBack: {},
             }
+        },
+        created() {
+            this.getCourses();
+            console.log(this.coursesBack);
         },
         methods: {
             toCourse(id) {
                 console.log(id);
                 this.$router.push(`/course/${id}`);
             },
+            getCourses() {
+                axios
+                    .get("http://localhost:8080/courses")
+                    .then((res) => {
+                        this.coursesBack = res.data;
+                        //console.log(res.data);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
         },
     }
 </script>
@@ -34,14 +52,14 @@ import router from '../router';
         <h2 class="text-title-1 font-bold text-center mb-[23px] inter lg:hidden">Escolha sua trilha</h2>
         <div class="courses-wrap">
             <ListCourses 
-            v-for="course in courses"
-            :key="course.id"
-            :title="course.title"
-            :percentage="course.percentage"
-            class="course"
-            @tocourse="toCourse(course.id)"
-        >
-        </ListCourses>
+                v-for="course in coursesBack"
+                :key="course.id"
+                :title="course.title"
+                :percentage="90"
+                class="course"
+                @tocourse="toCourse(course.stack)"
+            >
+            </ListCourses>
         </div>
     </div>
     
