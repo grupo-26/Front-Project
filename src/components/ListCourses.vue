@@ -40,6 +40,10 @@ axios
           </div>
         </div>
     </div>
+
+    <button @click="$emit('test')">console</button>
+    <button @click="change()">change</button>
+    <div>{{}}</div>
 </template>
 
 <style>

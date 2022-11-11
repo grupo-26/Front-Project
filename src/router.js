@@ -20,5 +20,9 @@ export default createRouter({
       path: '/trilhas',
       component: () => import('@/views/Trilhas.vue'),
     },
+    {
+      path: '/course/:id',
+      component: () => import('@/views/Course.vue'),
+    },
   ],
 })

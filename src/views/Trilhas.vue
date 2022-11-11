@@ -1,5 +1,6 @@
 <script>
     import ListCourses from '../components/ListCourses.vue';
+import router from '../router';
 
     export default {
         components: {
@@ -16,7 +17,13 @@
                     {id: 6, title: "Redes", percentage: 90 },
                 ]
             }
-        }
+        },
+        methods: {
+            tt(id) {
+                console.log(id);
+                this.$router.push(`/course/${id}`);
+            },
+        },
     }
 </script>
 
@@ -32,6 +39,7 @@
             :title="course.title"
             :percentage="course.percentage"
             class="course"
+            @test="tt(course.id)"
         >
         </ListCourses>
         </div>
