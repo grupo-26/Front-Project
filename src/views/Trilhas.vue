@@ -19,7 +19,7 @@ import router from '../router';
             }
         },
         methods: {
-            tt(id) {
+            toCourse(id) {
                 console.log(id);
                 this.$router.push(`/course/${id}`);
             },
@@ -39,7 +39,7 @@ import router from '../router';
             :title="course.title"
             :percentage="course.percentage"
             class="course"
-            @test="tt(course.id)"
+            @tocourse="toCourse(course.id)"
         >
         </ListCourses>
         </div>

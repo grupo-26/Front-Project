@@ -22,7 +22,7 @@ axios
 </script>
 
 <template>
-    <div class="w-[287px]">
+    <div @click="$emit('tocourse')" class="w-[287px]">
         <div class="bg-[#EDEDED] h-[195px]">img</div>
         <div class="course__content">
           <div class="course__content-bg bg-[#8C0DAD] pl-4 mb-[23px]">
@@ -40,10 +40,6 @@ axios
           </div>
         </div>
     </div>
-
-    <button @click="$emit('test')">console</button>
-    <button @click="change()">change</button>
-    <div>{{}}</div>
 </template>
 
 <style>
