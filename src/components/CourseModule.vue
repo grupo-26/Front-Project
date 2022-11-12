@@ -20,29 +20,54 @@ export default {
         <div class="px-[19px] pt-2">
             <ul>
                 <li class="flex justify-between roboto text-list-module-gray">
-                    <input type="radio" id="" name="" value="">
-                    <p class="list-content font-[600]">UX Design</p>
-                    <span class="list-content-type italic">vídeo</span>
-                    <p class="font-[600]">01:00</p>
+                    <div class="flex">
+                        <input type="radio" id="" name="" value="" class="mr-2.5">
+                        <p class="list-content font-[600]">UX Design</p>
+                    </div>
+
+                    <div class="flex">
+                        <span class="list-content-type italic mr-5">vídeo</span>
+                        <p class="font-[600]">01:00</p>
+                    </div>
                 </li>
+
                 <li class="flex justify-between roboto text-list-module-gray">
-                    <input type="radio" id="" name="" value="">
-                    <p class="list-content font-[600]">UX Design</p>
-                    <span class="list-content-type italic">vídeo</span>
-                    <p class="font-[600]">01:00</p>
+                    <div class="flex">
+                        <input type="radio" id="" name="" value="" class="mr-2.5">
+                        <p class="list-content font-[600]">UX Design</p>
+                    </div>
+
+                    <div class="flex">
+                        <span class="list-content-type italic mr-5">vídeo</span>
+                        <p class="font-[600]">01:00</p>
+                    </div>
                 </li>
+
                 <li class="flex justify-between roboto text-list-module-gray">
-                    <input type="radio" id="" name="" value="">
-                    <p class="list-content font-[600]">UX Design</p>
-                    <span class="list-content-type italic">vídeo</span>
-                    <p class="font-[600]">01:00</p>
+                    <div class="flex">
+                        <input type="radio" id="" name="" value="" class="mr-2.5">
+                        <p class="list-content font-[600]">UX Design</p>
+                    </div>
+
+                    <div class="flex">
+                        <span class="list-content-type italic mr-5">vídeo</span>
+                        <p class="font-[600]">01:00</p>
+                    </div>
                 </li>
+
                 <li class="flex justify-between roboto text-list-module-gray">
-                    <input type="radio" id="" name="" value="">
-                    <p class="list-content font-[600]">UX Design</p>
-                    <span class="list-content-type italic">vídeo</span>
-                    <p class="font-[600]">01:00</p>
+                    <div class="flex">
+                        <input type="radio" id="" name="" value="" class="mr-2.5">
+                        <p class="list-content font-[600]">UX Design</p>
+                    </div>
+
+                    <div class="flex">
+                        <span class="list-content-type italic mr-5">vídeo</span>
+                        <p class="font-[600]">01:00</p>
+                    </div>
                 </li>
+
+
             </ul>
             </div>
 
