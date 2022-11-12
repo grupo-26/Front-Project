@@ -1,5 +1,10 @@
 <script>
+    import CourseModule from '../components/CourseModule.vue';
+
 export default {
+    components: {
+        CourseModule
+    },
     data() {
         return {
             value: {},
@@ -44,5 +49,6 @@ export default {
     <div>
         <p>Curso id: {{ this.$route.params.stack }}</p>
         <p>Nosso valor: </p>
+        <CourseModule :title="'Fundamentos'"></CourseModule>
     </div>
 </template>

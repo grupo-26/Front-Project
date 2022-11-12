@@ -15,6 +15,10 @@ module.exports = {
       'title-1': '1.25rem',
       //title 18px;
       'title-2': '1.125rem',
+      //list 12px
+      'list-content': '0.75rem',
+      //list 10px
+      'list-content-type': '0.625rem',
       'xl:': '1.25rem',
       '3xl': '1.953rem',
     },
@@ -22,6 +26,7 @@ module.exports = {
       colors: {
         'white': '#F5F5F5',
         'white-gray': '#EDEDED',
+        'list-module-gray': '#464646',
       },
     },
   },
