@@ -2,13 +2,13 @@
     import CourseModule from '../components/CourseModule.vue';
 
 export default {
-    components: {
-        CourseModule
-    },
     data() {
         return {
-            value: {},
+            modules: {},
         }
+    },
+    components: {
+        CourseModule
     },
     mounted() {
         this.road();
@@ -16,7 +16,7 @@ export default {
     methods: {
         road() {
             if(this.$route.params.stack == 'ux') {
-                this.value = [
+                this.modules = [
                     {id: 1, title:"fundamentos ux", stack:"ux" },
                     {id: 2, title:"fundamentos ui", stack:"ux 2"},
                     {id: 3, title:"planos de carreira", stack:"ux 2"}, 
@@ -24,18 +24,18 @@ export default {
                 
                 ];
                 console.log('ux');
-                console.log(this.value);
+                console.log(this.modules);
                 //this.value = 'ux';
             }
             else if(this.$route.params.stack == 'dfs') {
-                this.value = [
+                this.modules = [
                     {id: 1, title:"Algoritmos", stack:"dfs" },
                     {id: 2, title:"HTTP", stack:"dfs"},
                     {id: 3, title:"GIT", stack:"dfs"}, 
                     {id: 4, title:"html", stack:"dfs"},  
                 ];
                 console.log('dfs');
-                console.log(this.value);
+                console.log(this.modules);
                 //this.value = 'dfs';
             }
         }
@@ -47,8 +47,15 @@ export default {
 
 <template>
     <div>
-        <p>Curso id: {{ this.$route.params.stack }}</p>
-        <p>Nosso valor: </p>
-        <CourseModule :title="'Fundamentos'"></CourseModule>
+
+        <div class="modules-wrap flex flex-col items-center">
+            <CourseModule
+                v-for="module in modules"
+                :title="module.title"
+                class="mb-[20px]"
+            >
+            </CourseModule>
+        </div>
+
     </div>
 </template>

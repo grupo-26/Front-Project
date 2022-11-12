@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <div class="max-w-[287px]">
+    <div class="max-w-[287px] w-[287px]">
         <div class="course__content-bg bg-[#8C0DAD] w-full pl-4">
             <div class="px-[24px] pt-[15px] pb-[15px] bg-black">
               <p class="title-2 text-white font-bold roboto"> {{title}} </p>
