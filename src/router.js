@@ -26,5 +26,9 @@ export default createRouter({
       component: () => import('@/views/Course.vue'),
       props: { stack: true }
     },
+    {
+      path: '/aula',
+      component: () => import("@/views/Aula.vue"),
+    }
   ],
 })
