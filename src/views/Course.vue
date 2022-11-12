@@ -51,9 +51,7 @@ export default {
 
 <template>
 	<div>
-		<Header />
-
-
+		<Header :type="'both'"/>
 
 		<div class="mt-4 mx-9">
 			<div>
