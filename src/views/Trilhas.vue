@@ -26,9 +26,10 @@
             console.log(this.coursesBack);
         },
         methods: {
-            toCourse(id) {
-                console.log(id);
-                this.$router.push(`/course/${id}`);
+            toCourse(stack) {
+                console.log(stack);
+                //this.$router.push(`/course/${stack}`);
+                this.$router.push({path:`/course/${stack}`, name: 'course', params: {stack: stack} });
             },
             getCourses() {
                 axios
