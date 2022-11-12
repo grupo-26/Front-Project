@@ -39,7 +39,7 @@
 
 .btn--black{
   @apply bg-black;
-  @apply text-white text-xs font-bold;
+  @apply text-white text-sm font-bold;
   @apply w-2/4;
   @apply mx-auto mb-5;
 }
