@@ -1,17 +1,41 @@
 <script>
+export default {
+  props: ['type'],
+}
 
 </script>
 
 <template>
-    <div class="flex justify-between pt-9">
-        <div v-if="this.$route.path == '/trilhas'">
-            <router-link to="/" class="text-[12px]">Voltar</router-link>
-        </div>
+  <div class="pt-9 px-9 lg:pt-20 ">
+    <div v-if="type == 'both'" class="flex justify-between">
+      <div>
+        voltar
+      </div>
 
-        <img src="../../assets/images/logo.png">
-
-        <div v-if="this.$route.path == '/trilhas'">
-            <router-link to="/about" class="text-[12px]">Avançar</router-link>
-        </div>
+      <div class="">
+        <router-link to="/" class="text-[12px]">
+          <img class="lg:hidden" src="../../assets/images/hamburguer.png">
+        </router-link>
+      </div>
     </div>
+
+    <div v-else-if="type == 'menu'" class="flex justify-end">
+      <div class="">
+        <router-link to="/" class="text-[12px]">
+          <img class="lg:hidden" src="../../assets/images/hamburguer.png">
+        </router-link>
+      </div>
+    </div>
+
+    <div v-else class="flex justify-start">
+      <div>
+        voltar
+      </div>
+    </div>
+
+
+    <div class="flex justify-center -mt-[15px]">
+      <img class="w-11 h-11 lg:w-[98px]  lg:h-[92px] lg:mb-20 " src="../../assets/images/logo.png">
+    </div>
+  </div>
 </template>

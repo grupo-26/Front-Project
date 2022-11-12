@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* fonts */
+.inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
 
 /* Typography */
 
@@ -37,18 +47,26 @@
   @apply drop-shadow-sm -translate-y-1;
 }
 
+@layer components {
+  .btn--black {
+    background-color: theme(colors.black);
+  }
+}
+
 .btn--black{
   @apply bg-black;
-  @apply text-white text-sm font-bold;
+  /*
+  @apply text-white text-xs font-bold;
   @apply w-2/4;
   @apply mx-auto mb-5;
+  */
 }
 
 .btn--orange {
   /*
   @apply bg-orange-500 text-white; 
   */
-  
+
   color: white;
   background-color: #f97316;
 
