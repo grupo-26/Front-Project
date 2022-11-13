@@ -19,6 +19,7 @@ export default {
 	created() {
     this.getRoadBack();
     this.routerStack = this.$route.params.stack;
+    console.log("valor: " + this.tsc);
 	},
 
 	methods: {
@@ -54,7 +55,8 @@ export default {
 
 		<div class="mt-4 mx-9">
 			<div>
-				<h2 class="text-center inter font-bold text-title-2">{{ $route.params.stack }}</h2>
+				<h2 class="text-center inter font-bold text-title-2">{{ $route.params.title }}</h2>
+
 			</div>
 
 			<div class="w-[287px] mx-auto mb-7 mt-[18px]">

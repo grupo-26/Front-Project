@@ -22,9 +22,10 @@ export default createRouter({
     },
     {
       name: 'course',
-      path: '/course/:stack',
+      //path: '/course/:stack/:title',
+      path: '/course/:stack/:title',
       component: () => import('@/views/Course.vue'),
-      props: { stack: true }
+      props: true,
     },
     {
       path: '/aula',
