@@ -6,7 +6,7 @@ export default createRouter({
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('@/views/Login.vue'),
     },
     {
       path: '/about',
