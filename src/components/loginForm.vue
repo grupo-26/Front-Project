@@ -6,7 +6,7 @@
       </div>
 
       <input
-        class="login__input"
+        class="text-sm login__input"
         id="email"
         type="email"
         v-model="email"
@@ -24,11 +24,11 @@
         placeholder="senha"
       />
 
-      <a href="#" class="login__link">Esqueceu sua senha?</a>
+      <a href="#" class="text-xs login__link">Esqueceu sua senha?</a>
 
       <button class="btn btn--black">Entrar</button>
 
-      <a href="#" class="register-link">&lt; Quero me cadastrar &gt;</a>
+      <a href="#" class="text-xs register-link">&lt; Quero me cadastrar &gt;</a>
     </form>
   </div>
 </template>
@@ -96,11 +96,11 @@ export default {
   @apply bg-white-gray;
   @apply border border-gray-900;
 
-  @apply font-sans text-black text-sm;
+  @apply font-sans text-black;
 }
 
 .login__input::placeholder {
-  @apply font-bold font-sans text-black text-sm;
+  @apply font-bold font-sans text-black;
 }
 
 .login__input:not(:last-of-type) {
@@ -108,11 +108,11 @@ export default {
 }
 
 .login__link {
-  @apply font-sans text-xs text-right;
+  @apply font-sans text-right;
   @apply mb-5 mt-2;
 }
 
 .register-link {
-  @apply text-xs font-sans font-bold text-center;
+  @apply font-sans font-bold text-center;
 }
 </style>

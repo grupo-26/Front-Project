@@ -6,7 +6,7 @@
   </section>
 </template>
 
-<script>
+<script lang="js">
 import VideoPlayer from "@/components/videoplayer/VideoPlayer.vue";
 import NavAula from "@/components/Aula/navAula.vue";
 import Nav from "@/components/Nav/Nav.vue";

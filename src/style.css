@@ -20,19 +20,19 @@
   color: #f97316;
 
   /* Font */
-  @apply text-3xl font-serif tracking-wide;
+  @apply font-serif text-3xl tracking-wide;
 }
 
 .heading-secondary {
   font-size: 1.25rem;
 
-  @apply uppercase font-sans;
+  @apply font-sans uppercase;
 }
 
 /* Components */
 
 .btn {
-  @apply py-2 px-5;
+  @apply px-5 py-2;
 
   /* Borders */
   @apply rounded;
@@ -58,16 +58,14 @@
 
 .btn--black{
   @apply bg-black;
-  /*
-  @apply text-white text-xs font-bold;
+  @apply text-xs font-bold text-white;
   @apply w-2/4;
   @apply mx-auto mb-5;
-  */
 }
 
 .btn--orange {
   /*
-  @apply bg-orange-500 text-white; 
+  @apply text-white bg-orange-500; 
   */
 
   color: white;
