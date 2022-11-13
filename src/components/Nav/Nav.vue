@@ -80,13 +80,16 @@ export default {
   }
 
   .nav__close-btn {
-    @apply text-xl;
+    /* @apply text-xl; */
+    font-size: 1.25rem;
   }
   .nav__open-btn {
     @apply text-right;
     @apply block;
-    @apply text-xl;
+    /* @apply text-xl; */
     @apply text-black;
+
+    font-size: 1.25rem;
   }
 
   .nav__menu {
@@ -96,8 +99,10 @@ export default {
   }
 
   .nav__item {
-    @apply font-bold text-xl;
+    @apply font-bold;
     @apply mb-8;
+
+    font-size: 1.25rem;
   }
 
   .logo-box {

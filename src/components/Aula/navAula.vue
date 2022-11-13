@@ -43,7 +43,9 @@
   }
 
   .nav-aula__link {
-    @apply font-bold text-sm text-white;
+    @apply font-bold text-white;
     @apply p-2;
+
+    font-size: 0.875rem;
   }
 </style>

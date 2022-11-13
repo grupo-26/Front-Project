@@ -51,6 +51,9 @@
   .btn--black {
     background-color: theme(colors.black);
   }
+  .nav__close-btn {
+    font-size:  theme(text.xl);
+  }
 }
 
 .btn--black{
