@@ -37,6 +37,25 @@ export default {
    height: 28vh;
   }
 
+  @media screen and (min-width: 640px) {
+    .video-player {
+      height: 40vh;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .video-player {
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+    }
+    .video-player__video {
+      @apply w-full h-full;
+      
+      max-width: 1080px;
+    }
+  }
+
   .video-player__video {
    @apply w-full h-full;
   }
