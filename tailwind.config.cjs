@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,6 +16,11 @@ module.exports = {
         'white': '#F5F5F5',
         'white-gray': '#EDEDED',
         'list-module-gray': '#464646',
+        'black': '#000000',
+        'yellow': '#FFEB38',
+        'purple': '#925FF0',
+        'green-light': '#00D6AC',
+        'pink': '#F956CE'
       },
       fontSize: {
         //title 20px;

@@ -63,20 +63,6 @@
   @apply mx-auto mb-5;
 }
 
-.btn--orange {
-  /*
-  @apply text-white bg-orange-500; 
-  */
-
-  color: white;
-  background-color: #f97316;
-
-  @apply px-14;
-  @apply rounded-3xl; 
-
-  @apply font-bold;
-}
-
 .logo-box {
   @apply w-full;
   @apply flex flex-row justify-center;
