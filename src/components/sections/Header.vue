@@ -11,8 +11,8 @@ export default {
 </script>
 
 <template>
-  <div class="pt-9 px-9 lg:pt-20 ">
-    <div v-if="type == 'both'" class="flex justify-between">
+  <div class="pt-9 px-9 lg:pt-16 ">
+    <div v-if="type == 'both'" class="flex justify-between items-center">
       <div @click="$router.go(-1)">
         voltar
       </div>

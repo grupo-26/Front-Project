@@ -124,11 +124,17 @@ export default {
   .open-nav {
     display: none; 
 
-    @apply fixed left-0 top-0; 
+    @apply fixed right-0 top-0; 
 
     @apply h-screen w-screen;
 
     @apply bg-black text-white;
+  }
+
+  @media screen and (min-width: 768px) {
+    .open-nav {
+      max-width: 45vh;
+    }
   }
 
   .closed-nav {
@@ -154,8 +160,6 @@ export default {
     @apply py-16 px-10;
   }
   
-  .nav {
-    @apply md:hidden;
-  }
+
   
 </style>

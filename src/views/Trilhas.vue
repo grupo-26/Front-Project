@@ -40,10 +40,10 @@
 </script>
 
 <template>
-    <Header type="menu" logo="true" />
+    <Header type="both" logo="true" />
 
     <div class="mt-[23px]">
-        <h2 class="text-title-1 font-bold text-center mb-[23px] inter lg:hidden">Escolha sua trilha</h2>
+        <h2 class="text-title-1 font-bold text-center mb-[23px] inter">Escolha sua trilha</h2>
 
         <div class="courses-wrap">
             <ListCourses 
