@@ -1,27 +1,27 @@
-<template>
-  <section class="section-login">
-    <LoginForm />
+<template>  
+  <section class="section-registro">
+    <RegistrationForm />
   </section>
 </template>
 
 <script>
-import LoginForm from "@/components/loginForm.vue"
+import RegistrationForm from '../components/registrationForm.vue';
 
 export default {
-  name: "Login",
+  name: "Registro",
   components: {
-    LoginForm,
-  },
+    RegistrationForm
+  }
 }
 </script>
 
 <style>
-.section-login {
+.section-registro {
   @apply bg-white;
-  @apply md:bg-black;
 }
+
 @media (min-width: 768px) {
-  .section-login {
+  .section-registro {
     background-image: url("../assets/images/3d-abstract-soundwaves-background-with-flowing-lines.jpg");
     @apply bg-center bg-cover;
     @apply md:bg-black;

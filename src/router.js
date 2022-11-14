@@ -16,12 +16,19 @@ export default createRouter({
       path: '/login',
       component: () => import('@/views/Login.vue'),
     },
+    
+    {
+      path: '/registro',
+      component: () => import('@/views/Registro.vue'),
+    },
+
     {
       name: 'trilhas',
       path: '/trilhas/:id',
       component: () => import('@/views/Trilhas.vue'),
       props: true,
     },
+
     {
       name: 'course',
       path: '/course/:stack/:title',
