@@ -16,7 +16,12 @@ export default {
     return {
       lessonsGeted: {},
       filteredLessons: [],
-      title: 'Homem Aranha',
+      navSize: null,
+      //curso: null,
+      title: null,
+      linkToVideo: null,
+      lessonID: null,
+      inicialSetVideo: true,
       modSigla: null,
       activeLesson: null
     }
@@ -24,10 +29,11 @@ export default {
   created() {
     this.getLessons();
     this.modsigla = this.$route.params.mod;
+    this.lessonID = this.$route.params.id;
   },
   methods: {
     changeTitle(text) {
-      this.titulo = text;
+      this.title = text;
     },
 
     filter(res) {
@@ -38,6 +44,8 @@ export default {
           this.filteredLessons.push({id: res[i].id, aulaid: i+1, title: res[i].title, modsigla: res[i].modsigla, pts: res[i].pts,time: res[i].time,tipo: res[i].tipo, linkvideo: res[i].linkvideo, linkpdf: res[i].linkpdf });
         }
       }
+      this.navSize = this.filteredLessons.length;
+      this.firstSetLesson();
     },
 
     async getLessons() {
@@ -52,6 +60,22 @@ export default {
       }
 		},
 
+    changeLesson(id) {
+      console.log(id);
+      id = id-1;
+      this.title = this.filteredLessons[id].title; 
+      this.linkToVideo = this.filteredLessons[id].linkvideo;
+      console.log('link: ' + this.linkToVideo);
+    },
+
+    firstSetLesson() {
+      if(this.inicialSetVideo == true) {
+        this.linkToVideo = this.filteredLessons[this.lessonID-1].linkvideo;
+        this.title = this.filteredLessons[this.lessonID-1].title;
+        this.inicialSetVideo = false;
+      }
+    }
+
   },
 }
 </script>
@@ -60,29 +84,44 @@ export default {
 <template>
   <section class="section-aula">
     <Nav /> 
+
     <nav class="nav-aula"> 
     <div class="nav-aula__btn-box">
       <button class="nav-aula__btn" @click="$router.go(-1)">&lt; voltar</button>
       <button class="nav-aula__btn">avançar &gt;</button>
     </div>
 
+    <div class="mx-9 roboto italic text-list-content mt-[21px]">
+      <h1>{{this.$route.params.curso}}</h1>
+    </div>
+
     <div class="nav-aula__link-box">
-      <button class="nav-aula__link" @click="changeTitle('Batman')">1</button> 
-      <button class="nav-aula__link" @click="changeTitle('Robin')">2</button> 
+      <button v-for="i in navSize" class="nav-aula__link" @click="changeLesson(i)">{{i}}</button>
     </div>
   </nav>
 
-  <div>
-    <h2>Titulo da aula: {{this.title}}</h2>
+  <div class="mx-9">
+    <div class="mt-[30px] mb-[1rem]">
+      <h2 class="roboto font-bold text-[1rem]">{{this.title}}</h2>
+    </div>
+
+    <VideoPlayer :link="`${linkToVideo}`" class="mb-[30px]"/>
+    
+    <div>
+      <p class="roboto font-bold text-list-content">Sobre o vídeo: </p>
+      <p class="roboto font-list-content text-list-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis quam, 
+        varius in quam vitae, luctus lacinia massa. Maecenas aliquet sed nunc id dapibus. 
+        Vivamus pretium accumsan mauris ac convallis. 
+        Integer molestie metus mi, a aliquet turpis sodales ac. 
+      </p>
+    </div>
+
+    <div class="flex justify-center mt-6">
+      <button class="roboto text-list-content font-bold p-[12px] bg-black text-white">aula concluída</button>
+    </div>
+    
   </div>
 
-  <div>
-    <h1>teste de troca de valores: </h1>
-    <p> Titulo: {{titulo}}</p>
-  </div>
-    <VideoPlayer />
-
-    <p>{{ this.filteredLessons }}</p>
   </section>
 </template>
 

@@ -1,35 +1,32 @@
 <script>
 export default {
-  props: {
-  },
+  props: ['link'],
   data() {
     return {
-      ll: "https://www.youtube.com/embed/zVgKnfN9i34"
+      
     }
   },
+  created(){
+    //this.link = "https://www.youtube.com/embed/8PDGBNXD_64";
+  },
+  updated() {
+   console.log('link video: ' + this.link);
+  },
   methods: {
-    changeVideo() {
-      this.ll = "https://www.youtube.com/embed/8PDGBNXD_64"
-    }
   },
 }
 
 </script>
 
 <template>
-    <p>{{this.ll}}</p>
   <div class="video-player">
     <iframe class="video-player__video"  
-      :src="`${ll}`" 
+      :src="`${link}`" 
       title="Framestock little story about mixed racial friends. Stock footage showreel 2017" 
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></iframe>
     </div>
-
-    <button @click="changeVideo">
-      Muda Vídeo
-    </button>
 </template>
 
 
@@ -38,14 +35,13 @@ export default {
   .video-player {
    /* @apply w-96 h-72 max-w-full;
     */
-    @apply p-3;
+   /* @apply p-3; */
    
-
-
+   height: 28vh;
   }
 
   .video-player__video {
-    @apply w-full h-full;
+   @apply w-full h-full;
   }
   
 </style>

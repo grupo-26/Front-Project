@@ -28,7 +28,7 @@ export default createRouter({
     },
     {
       name: 'aula',
-      path: '/aula/:mod/:id',
+      path: '/aula/:curso/:mod/:id',
       component: () => import("@/views/Aula.vue"),
       props: true,
     }
