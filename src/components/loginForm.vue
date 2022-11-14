@@ -116,7 +116,11 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
+.wrong-alert {
+   display: block !important;
+}
+
 .login {
   @apply flex flex-row justify-center items-center;
   @apply min-h-screen;
@@ -161,8 +165,6 @@ export default {
   @apply font-sans font-bold text-center;
 }
 
-.wrong-alert {
-   display: block !important;
-}
+
 </style>
 
