@@ -107,7 +107,7 @@ export default {
 <template>
   <section class="section-aula">
     <nav class="nav-aula"> 
-    <button class="nav-aula__btn ml-5 mt-[70px]" @click="$router.push('/trilhas')">&lt; modulos</button>
+    <button class="nav-aula__btn ml-5 mt-[70px]" @click="$router.push('/trilhas')">&lt; Trilhas</button>
     <div class="nav-aula__btn-box">
       <button class="nav-aula__btn" @click="actvLessonSub">&lt; voltar</button>
       <button class="nav-aula__btn" @click="actvLessonPlus(this.navSize)">avançar &gt;</button>

@@ -1,6 +1,11 @@
 <script>
+import Nav from "../Nav/Nav.vue";
+
 export default {
   props: ['type', 'logo'],
+  components: {
+    Nav
+  }
 }
 
 </script>
@@ -13,17 +18,13 @@ export default {
       </div>
 
       <div class="">
-        <router-link to="/" class="text-[12px]">
-          <img class="lg:hidden" src="../../assets/images/hamburguer.png">
-        </router-link>
+        <Nav></Nav>
       </div>
     </div>
 
     <div v-else-if="type == 'menu'" class="flex justify-end">
       <div class="">
-        <router-link to="/" class="text-[12px]">
-          <img class="lg:hidden" src="../../assets/images/hamburguer.png">
-        </router-link>
+        <Nav></Nav>
       </div>
     </div>
 
