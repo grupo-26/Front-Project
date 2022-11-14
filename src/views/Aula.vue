@@ -95,6 +95,7 @@ export default {
     actvLessonSub() {
       if(this.activeLesson > 1) {
         this.activeLesson--;
+        this.changeLesson(this.activeLesson);
       }
     },
 
