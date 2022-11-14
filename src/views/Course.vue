@@ -68,7 +68,7 @@ export default {
 			</div>
 
 
-			<div class="modules-wrap flex flex-col items-center">
+			<div class="courses-wrap ">
         <CourseModule
           v-for="module in filteredModules"
           :key="module.id"
@@ -83,3 +83,27 @@ export default {
 
 	</div>
 </template>
+
+<style scoped>
+  .courses-wrap {
+      display: grid;
+      grid-template-columns: auto;
+      justify-content: center;
+      row-gap: 34px;
+  }
+
+  @media screen and (min-width:768px) {
+    .courses-wrap {
+      grid-template-columns: auto auto;
+      column-gap: 40px;
+    }
+  }
+
+  @media screen and (min-width:1024px) {
+    .courses-wrap {
+      grid-template-columns: auto auto auto;
+      column-gap: 40px;
+      row-gap: 58px;
+    }
+  }
+</style>

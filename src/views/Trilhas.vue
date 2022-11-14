@@ -60,7 +60,7 @@
     
 </template>
 
-<style>
+<style scoped>
 
 .course:nth-child(3n + 3) .course__content .course__content-bg {
     background-color: #F956CE;
