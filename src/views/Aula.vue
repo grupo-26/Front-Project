@@ -105,6 +105,7 @@ export default {
     <Nav /> 
 
     <nav class="nav-aula"> 
+    <button class="nav-aula__btn ml-5" @click="$router.go(-1)">&lt; modulos</button>
     <div class="nav-aula__btn-box">
       <button class="nav-aula__btn" @click="actvLessonSub">&lt; voltar</button>
       <button class="nav-aula__btn" @click="actvLessonPlus">avançar &gt;</button>
