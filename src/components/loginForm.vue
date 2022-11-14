@@ -1,40 +1,6 @@
-<template>
-  <div class="login">
-    <form class="login__form" @submit="loginHandler">
-      <div class="logo-box">
-        <img src="../assets/images/logo.png" alt="" />
-      </div>
-
-      <input
-        class="text-sm login__input"
-        id="email"
-        type="email"
-        v-model="email"
-        autocomplete="off"
-        aria-label="campo de email"
-        placeholder="email"
-      />
-
-      <input
-        class="login__input"
-        id="password"
-        type="password"
-        v-model="password"
-        aria-label="campo de senha"
-        placeholder="senha"
-      />
-
-      <a href="#" class="text-xs login__link">Esqueceu sua senha?</a>
-
-      <button class="btn btn--black">Entrar</button>
-
-      <a href="#" class="text-xs register-link">&lt; Quero me cadastrar &gt;</a>
-    </form>
-  </div>
-</template>
-
 <script>
 import axios from "axios"
+import router from '../router';
 
 export default {
   name: "LoginForm",
@@ -42,7 +8,12 @@ export default {
     return {
       email: "",
       password: "",
+      usersGeted: {},
+      wrongUser: null,
     }
+  },
+  created() {
+    this.getUsers();
   },
   methods: {
     loginHandler: function (evt) {
@@ -67,9 +38,83 @@ export default {
           }
         })
     },
+
+    match(res) {
+      let sizeArr = Object.keys(res).length;
+
+      for(let i = 0; i < sizeArr; i++) {
+        if(res[i].email == this.email && res[i].password == this.password) {
+          console.log('match');
+          this.toTrilha(res[i].id);
+          break;
+        } else {
+          this.wrongUser = true;
+        }
+      }
+    },
+
+    loginHand(evt) {
+      evt.preventDefault();
+      this.match(this.usersGeted);
+    },
+
+    toTrilha(id) {
+      this.$router.push({name: 'trilhas', params: {id: id} });
+    },
+
+    async getUsers() {
+      try {
+        let response = await axios.get('http://localhost:8080/user/');
+        this.usersGeted = response.data;
+        console.log(response.data);
+        //this.match(this.usersGeted);
+        return response.data;
+      } catch(e) {
+        console.log(e);
+      }
+		},
   },
 }
 </script>
+
+<template>
+  <div class="login">
+    <form class="login__form" @submit="loginHand">
+      <div class="logo-box">
+        <img src="../assets/images/logo.png" alt="" />
+      </div>
+
+      <input
+        class="text-sm login__input"
+        id="email"
+        type="email"
+        v-model="email"
+        autocomplete="off"
+        aria-label="campo de email"
+        placeholder="email"
+      />
+
+      <input
+        class="login__input"
+        id="password"
+        type="password"
+        v-model="password"
+        aria-label="campo de senha"
+        placeholder="senha"
+      />
+
+      <div class="hidden roboto text-list-content text-red-600 mt-2" :class="{'wrong-alert': wrongUser}">
+        <p class="">Email ou senha incorretos.</p>
+      </div>
+      
+      <a href="#" class="text-xs login__link">Esqueceu sua senha?</a>
+
+      <button class="btn btn--black">Entrar</button>
+
+      <a href="#" class="text-xs register-link">&lt; Quero me cadastrar &gt;</a>
+    </form>
+  </div>
+</template>
 
 <style scoped>
 .login {
@@ -114,5 +159,9 @@ export default {
 
 .register-link {
   @apply font-sans font-bold text-center;
+}
+
+.wrong-alert {
+   display: block !important;
 }
 </style>

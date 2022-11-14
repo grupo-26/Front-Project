@@ -40,7 +40,7 @@
 </script>
 
 <template>
-    <Header type="both" logo="true" />
+    <Header type="menu" logo="true" />
 
     <div class="mt-[23px]">
         <h2 class="text-title-1 font-bold text-center mb-[23px] inter">Escolha sua trilha</h2>
