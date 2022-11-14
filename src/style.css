@@ -73,3 +73,52 @@
 .logo-box img {
   @apply w-20;
 }
+
+
+
+
+
+/* ===============================================================
+  
+          Padronização dos Forms no Aplicativo
+
+================================================================= */
+.form {
+  @apply block;
+
+  @apply bg-white;
+
+  @apply w-80;
+  @apply min-h-min;
+
+  @apply py-4 px-6;
+  /* Internal Positioning */
+  @apply flex flex-col;
+
+  @apply font-sans;
+}
+
+.form__input {
+  @apply py-2 px-4;
+  @apply bg-white-gray;
+  @apply border border-gray-900;
+
+  @apply font-sans text-black;
+}
+
+.form__input::placeholder {
+  @apply font-bold font-sans text-black;
+}
+
+.form__input:not(:last-of-type) {
+  @apply mb-5;
+}
+
+.form__link {
+  @apply font-sans text-right;
+  @apply mb-5 mt-2;
+}
+
+.register-link {
+  @apply font-sans font-bold text-center;
+}

@@ -1,9 +1,40 @@
 <template>
-  <div class="login">
+  <div class="registration">
     <form class="form" @submit="loginHandler">
       <div class="logo-box">
         <img src="../assets/images/logo.png" alt="" />
       </div>
+
+      <input
+        class="text-sm form__input"
+        id="nome"
+        type="text"
+        v-model="firstName"
+        autocomplete="off"
+        aria-label="campo de nome"
+        placeholder="nome"
+      />
+
+      <input
+        class="text-sm form__input"
+        id="cidade"
+        type="text"
+        v-model="cidade"
+        autocomplete="off"
+        aria-label="campo de cidade"
+        placeholder="cidade"
+      />
+
+
+      <input
+        class="text-sm form__input"
+        id="estado"
+        type="text"
+        v-model="estado"
+        autocomplete="off"
+        aria-label="campo de estado"
+        placeholder="estado"
+      />
 
       <input
         class="text-sm form__input"
@@ -24,11 +55,9 @@
         placeholder="senha"
       />
 
-      <a href="#" class="text-xs form__link">Esqueceu sua senha?</a>
+      <button class="btn btn--black mt-5">Cadastrar</button>
 
-      <button class="btn btn--black">Entrar</button>
-
-      <a href="#" class="text-xs register-link">&lt; Quero me cadastrar &gt;</a>
+      <a href="#" class="text-xs register-link">&lt; Já sou Cadastrado &gt;</a>
     </form>
   </div>
 </template>
@@ -72,47 +101,8 @@ export default {
 </script>
 
 <style>
-.login {
+.registration {
   @apply flex flex-row justify-center items-center;
   @apply min-h-screen;
-}
-
-.form {
-  @apply block;
-
-  @apply bg-white;
-
-  @apply w-80 h-96;
-
-  @apply py-4 px-6;
-  /* Internal Positioning */
-  @apply flex flex-col;
-
-  @apply font-sans;
-}
-
-.form__input {
-  @apply py-2 px-4;
-  @apply bg-white-gray;
-  @apply border border-gray-900;
-
-  @apply font-sans text-black;
-}
-
-.form__input::placeholder {
-  @apply font-bold font-sans text-black;
-}
-
-.form__input:not(:last-of-type) {
-  @apply mb-5;
-}
-
-.form__link {
-  @apply font-sans text-right;
-  @apply mb-5 mt-2;
-}
-
-.register-link {
-  @apply font-sans font-bold text-center;
 }
 </style>
