@@ -18,7 +18,7 @@
 
         <ul class="nav__menu">
           <li class="nav__item">
-            <router-link to="/">Home</router-link> 
+            <router-link to="/trilhas">Home</router-link> 
           </li>
           <li class="nav__item">
             <router-link to="/profile">Perfil</router-link> 
