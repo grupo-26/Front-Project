@@ -8,16 +8,7 @@
           ListCourses
         },
         data() {
-            return { /*
-                courses: [
-                    {id: 1, title: "Desenvolvimento Full Stack", percentage: 50.25 },
-                    {id: 2, title: "UX/UI Design", percentage: 40 },
-                    {id: 3, title: "Quality Assurance", percentage: 25 },
-                    {id: 4, title: "Dev Front-end", percentage: 10 },
-                    {id: 5, title: "Dev Back-end", percentage: 5 },
-                    {id: 6, title: "Redes", percentage: 90 },
-                ],*/
-
+            return {
                 coursesBack: {},
             }
         },

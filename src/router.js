@@ -22,14 +22,15 @@ export default createRouter({
     },
     {
       name: 'course',
-      //path: '/course/:stack/:title',
       path: '/course/:stack/:title',
       component: () => import('@/views/Course.vue'),
       props: true,
     },
     {
-      path: '/aula',
+      name: 'aula',
+      path: '/aula/:mod/:id',
       component: () => import("@/views/Aula.vue"),
+      props: true,
     },
     {
       path: "/profile",

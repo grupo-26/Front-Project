@@ -73,10 +73,13 @@ export default {
           v-for="module in filteredModules"
           :key="module.id"
           :title="module.title"
+          :modsigla="module.modsigla"
           class="mb-[20px]"       
         >
         </CourseModule>
 			</div>
 		</div>
+
+
 	</div>
 </template>

@@ -27,7 +27,7 @@ module.exports = {
         'title-1': '1.25rem',
         //title 18px;
         'title-2': '1.125rem',
-        'xl:': '1.25rem',
+        //'xl:': '1.25rem',
         '3xl': '1.953rem',
         //list 12px
         'list-content': '0.75rem',
@@ -41,7 +41,7 @@ module.exports = {
       addComponents({
         '.btn--black': {
           backgroundColor: theme('colors.black'),
-        }
+        },
       })
     })
   ],
