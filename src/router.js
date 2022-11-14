@@ -30,6 +30,10 @@ export default createRouter({
     {
       path: '/aula',
       component: () => import("@/views/Aula.vue"),
+    },
+    {
+      path: "/profile",
+      component: () => import("@/views/Profile.vue"),
     }
   ],
 })
