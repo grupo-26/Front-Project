@@ -7,10 +7,7 @@ export default {
     }
   },
   created(){
-    //this.link = "https://www.youtube.com/embed/8PDGBNXD_64";
-  },
-  updated() {
-   console.log('link video: ' + this.link);
+    
   },
   methods: {
   },

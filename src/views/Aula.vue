@@ -17,7 +17,6 @@ export default {
       lessonsGeted: {},
       filteredLessons: [],
       navSize: null,
-      //curso: null,
       title: null,
       linkToVideo: null,
       lessonID: null,
@@ -65,7 +64,9 @@ export default {
       id = id-1;
       this.title = this.filteredLessons[id].title; 
       this.linkToVideo = this.filteredLessons[id].linkvideo;
-      console.log('link: ' + this.linkToVideo);
+      //console.log('link: ' + this.linkToVideo);
+      //this.actvLesson();
+      this.actvLesson(id+1);
     },
 
     firstSetLesson() {
@@ -73,7 +74,13 @@ export default {
         this.linkToVideo = this.filteredLessons[this.lessonID-1].linkvideo;
         this.title = this.filteredLessons[this.lessonID-1].title;
         this.inicialSetVideo = false;
+        this.activeLesson = this.lessonID;
+        console.log('first act: ' + this.activeLesson);
       }
+    },
+
+    actvLesson(id) {
+      this.activeLesson = id;
     }
 
   },
@@ -96,7 +103,7 @@ export default {
     </div>
 
     <div class="nav-aula__link-box">
-      <button v-for="i in navSize" class="nav-aula__link" @click="changeLesson(i)">{{i}}</button>
+      <button v-for="i in navSize" :class="{'active-lesson': i == activeLesson}" class="nav-aula__link" @click="changeLesson(i)">{{i}}</button>
     </div>
   </nav>
 
@@ -127,6 +134,10 @@ export default {
 
 
 <style scoped>
+
+  .active-lesson {
+    background-color: #00d6ac;
+  }
   .nav-aula__btn-box {
     @apply flex flex-row justify-between;
     @apply px-5;
