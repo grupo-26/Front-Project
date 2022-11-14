@@ -8,18 +8,6 @@ export default {
     }, 
   },
 }
-/*
-import axios from "axios";
-
-axios
-  .get("http://localhost:8080/courses")
-  .then((res) => {
-          console.log(res.data)
-  })
-  .catch((error) => {
-          console.log(error);
-  });
-*/
 </script>
 
 <template>
@@ -36,7 +24,7 @@ axios
             <p class="text-[0.75rem] whitespace-nowrap mr-[7px]">{{percentage}}% completo </p>
             
             <div class="w-full h-[5px] wrapper-percent">
-              <div class=" w3-container w3-blue w3-round-large h-full" :style="percent"></div>
+              <div class="bg-[#8c0dad] h-full" :style="percent"></div>
             </div>
           </div>
         </div>
