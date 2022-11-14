@@ -48,8 +48,8 @@ export default {
   name: "Nav",
   data() {
     return {
-      isOpen: true,
-      isClosed: false,
+      isOpen: false,
+      isClosed:true,
     }
   },
   components: {

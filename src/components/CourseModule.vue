@@ -28,6 +28,10 @@ export default {
       }
     },
 
+    toLesson() {
+      this.$router.push('/aula');
+    },
+
     async getLessonsRoad() {
       try {
         let response = await axios.get('http://localhost:8080/lesson/');
@@ -55,7 +59,7 @@ export default {
 
     <div class="px-[19px] pt-2">
       <ul>
-        <li v-for="lesson in filteredLessons" class="flex justify-between roboto text-list-module-gray">
+        <li v-for="lesson in filteredLessons" class="flex justify-between roboto text-list-module-gray" @click="toLesson">
           <div class="flex">
             <input type="radio" id="" name="" value="" class="mr-2.5">
             <p class="list-content font-[600] whitespace-nowrap tracking-tighter">{{lesson.title}}</p>
