@@ -81,7 +81,19 @@ export default {
 
     actvLesson(id) {
       this.activeLesson = id;
-    }
+    },
+
+    actvLessonPlus() {
+      if(this.activeLesson < 3) {
+        this.activeLesson++;
+      }
+    },
+
+    actvLessonSub() {
+      if(this.activeLesson > 1) {
+        this.activeLesson--;
+      }
+    },
 
   },
 }
@@ -94,8 +106,8 @@ export default {
 
     <nav class="nav-aula"> 
     <div class="nav-aula__btn-box">
-      <button class="nav-aula__btn" @click="$router.go(-1)">&lt; voltar</button>
-      <button class="nav-aula__btn">avançar &gt;</button>
+      <button class="nav-aula__btn" @click="actvLessonSub">&lt; voltar</button>
+      <button class="nav-aula__btn" @click="actvLessonPlus">avançar &gt;</button>
     </div>
 
     <div class="mx-9 roboto italic text-list-content mt-[21px]">
