@@ -27,8 +27,10 @@ export default createRouter({
       props: true,
     },
     {
-      path: '/aula',
+      name: 'aula',
+      path: '/aula/:mod/:id',
       component: () => import("@/views/Aula.vue"),
+      props: true,
     }
   ],
 })

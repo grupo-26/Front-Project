@@ -23,13 +23,13 @@ export default {
 
       for(let i = 0; i < sizeArr; i++) {
         if(res[i].modsigla == this.modsigla) {
-          this.filteredLessons.push({id: res[i].id, title: res[i].title, modsigla: res[i].modsigla, pts: res[i].pts,time: res[i].time,tipo: res[i].tipo, linkvideo: res[i].linkvideo, linkpdf: res[i].linkpdf });
+          this.filteredLessons.push({id: res[i].id, aulaid: i+1, title: res[i].title, modsigla: res[i].modsigla, pts: res[i].pts,time: res[i].time,tipo: res[i].tipo, linkvideo: res[i].linkvideo, linkpdf: res[i].linkpdf });
         }
       }
     },
 
-    toLesson() {
-      this.$router.push('/aula');
+    toLesson(mod, id) {
+      this.$router.push({name: 'aula', params: {mod: mod, id: id}});
     },
 
     async getLessonsRoad() {
@@ -59,7 +59,7 @@ export default {
 
     <div class="px-[19px] pt-2">
       <ul>
-        <li v-for="lesson in filteredLessons" class="flex justify-between roboto text-list-module-gray" @click="toLesson">
+        <li v-for="lesson in filteredLessons" class="flex justify-between roboto text-list-module-gray" @click="toLesson(lesson.modsigla, lesson.aulaid)">
           <div class="flex">
             <input type="radio" id="" name="" value="" class="mr-2.5">
             <p class="list-content font-[600] whitespace-nowrap tracking-tighter">{{lesson.title}}</p>
