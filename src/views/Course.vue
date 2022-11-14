@@ -51,7 +51,7 @@ export default {
 
 <template>
 	<div>
-		<Header :type="'both'"/>
+		<Header :type="'left'" :logo="'true'"></Header>
 
 		<div class="mt-4 mx-9">
 			<div>

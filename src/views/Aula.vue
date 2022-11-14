@@ -3,14 +3,14 @@ import router from '../router';
 import axios from "axios";
 import VideoPlayer from "@/components/videoplayer/VideoPlayer.vue";
 import NavAula from "@/components/Aula/navAula.vue";
-import Nav from "@/components/Nav/Nav.vue";
+import Header from "@/components/sections/Header.vue";
 
 export default {
   name: "Aula",
   components: {
     VideoPlayer,
     NavAula,
-    Nav
+    Header,
   },
   data() {
     return {
@@ -68,7 +68,6 @@ export default {
       //console.log('link: ' + this.linkToVideo);
       //this.actvLesson();
       this.activeType = this.filteredLessons[id].tipo;
-      console.log('tipo ativo att: ' + this.activeType);
       this.actvLesson(id+1);
     },
 
@@ -79,8 +78,6 @@ export default {
         this.inicialSetVideo = false;
         this.activeLesson = this.lessonID;
         this.activeType = this.filteredLessons[this.lessonID-1].tipo;
-        console.log('tipo ativo: ' + this.activeType);
-        console.log('first act: ' + this.activeLesson);
       }
     },
 
@@ -88,9 +85,10 @@ export default {
       this.activeLesson = id;
     },
 
-    actvLessonPlus() {
-      if(this.activeLesson < 3) {
+    actvLessonPlus(size) {
+      if(this.activeLesson < size) {
         this.activeLesson++;
+        this.changeLesson(this.activeLesson);
       }
     },
 
@@ -107,13 +105,11 @@ export default {
 
 <template>
   <section class="section-aula">
-    <Nav /> 
-
     <nav class="nav-aula"> 
-    <button class="nav-aula__btn ml-5" @click="$router.push('/trilhas')">&lt; modulos</button>
+    <button class="nav-aula__btn ml-5 mt-[70px]" @click="$router.go(-1)">&lt; modulos</button>
     <div class="nav-aula__btn-box">
       <button class="nav-aula__btn" @click="actvLessonSub">&lt; voltar</button>
-      <button class="nav-aula__btn" @click="actvLessonPlus">avançar &gt;</button>
+      <button class="nav-aula__btn" @click="actvLessonPlus(this.navSize)">avançar &gt;</button>
     </div>
 
     <div class="mx-9 roboto italic text-list-content mt-[21px]">

@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['type'],
+  props: ['type', 'logo'],
 }
 
 </script>
@@ -8,7 +8,7 @@ export default {
 <template>
   <div class="pt-9 px-9 lg:pt-20 ">
     <div v-if="type == 'both'" class="flex justify-between">
-      <div>
+      <div @click="$router.go(-1)">
         voltar
       </div>
 
@@ -27,14 +27,14 @@ export default {
       </div>
     </div>
 
-    <div v-else class="flex justify-start">
-      <div>
+    <div v-else-if="type == 'left'" class="flex justify-start">
+      <div  @click="$router.go(-1)">
         voltar
       </div>
     </div>
 
 
-    <div class="flex justify-center -mt-[15px]">
+    <div v-if="logo == 'true'" class="flex justify-center -mt-[15px]">
       <img class="w-11 h-11 lg:w-[98px]  lg:h-[92px] lg:mb-20 " src="../../assets/images/logo.png">
     </div>
   </div>
