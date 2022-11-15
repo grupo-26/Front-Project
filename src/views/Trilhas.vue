@@ -69,9 +69,9 @@ export default {
   <Header type="menu" logo="true" />
 
   <div class="mt-[23px] mb-[23px]">
-    <h2 class="text-title-1 font-bold text-center mb-[23px] inter">Escolha sua trilha</h2>
+    <h2 class="text-title-1 font-bold text-center mb-[23px] inter lg:hidden">Escolha sua trilha</h2>
     <div class="courses-wrap">
-      <ListCourses v-for="(course, index) in coursesBack" :key="course.id" :title="course.title" :percentage="this.userProgress[index]" class="course"
+      <ListCourses v-for="(course, index) in coursesBack" :key="course.id" :id="course.id" :title="course.title" :percentage="this.userProgress[index]" class="course"
         @tocourse="toCourse(course.stack, course.title, this.userID, course.id)">
       </ListCourses>
     </div>
