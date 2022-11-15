@@ -111,7 +111,7 @@ export default {
 
       <button class="btn btn--black">Entrar</button>
 
-      <a href="#" class="text-xs register-link">&lt; Quero me cadastrar &gt;</a>
+      <router-link to="/registro" class="text-xs register-link">&lt; Quero me cadastrar &gt;</router-link>
     </form>
   </div>
 </template>
