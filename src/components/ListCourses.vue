@@ -48,11 +48,11 @@ export default {
 }
 
 .course__bg--1 {
-  background-image: url('../assets/images/curso-01.png');
+  background-image: url('../assets/images/curso-02.jpg');
 }
 
 .course__bg--2 {
-  background-image: url('../assets/images/curso-02.jpg');
+  background-image: url('../assets/images/curso-01.png');
 }
 
 .course__bg--3 {
