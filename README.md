@@ -1,7 +1,36 @@
-# Vue 3 + Vite
+# [Hackathon] Orange Juice Evolution - FCamara
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Esse projeto foi desenvolvido no Hackathon do programa de formação
+da FCamara com o objetivo de criar uma plataforma de estudos.
 
-## Recommended IDE Setup
+# O App
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+Este é o Front do Squad-26, composto por dois devs Fullstack e uma UX/UI,
+a proposta desenvolvida é a de lançar um produto que abarque a necessidade
+de motivação e autodisciplina das pessoas, dando ferramentas para que elas
+possam se desenvolver através da plataforma.
+
+# Onde está o back-end? 
+
+O [Back-End](https://github.com/grupo-26/fcamara) foi feito em um Repo separado. 
+
+# O Time
+
+O time é composto de três pessoas determinadas e preparadas.
+
+## Danielle Neves
+
+*UX/UI designer*. Desenvolveu os protótipos de telas para
+que pudéssemos desenvolver o aplicativo da forma mais fluida possível,
+além é claro de fazer pesquisa de mercado para gerar ideias
+e o fluxo do aplicativo de forma a dar ao usuário uma experiência ímpar.
+
+## Filipe Davi
+
+*Desenvolvedor Fullstack*. Apresentou o projeto e ligou todas as partes
+para criar o fluxo idealizado pela nossa UX. Decidiu pelo uso do VueJs
+no Front-End e entregou serviço durante o ciclo de desenvolvimento.
+
+## Elton Soares
+
+*Desenvolvedor Fullstack*. Desenvolveu a parte inicial do banco de dados e do back-end, definindo as primeiras Endpoints do servidor. Além disso, desenvolveu a parte de estilos de algumas telas no projeto. 

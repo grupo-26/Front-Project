@@ -57,7 +57,7 @@
 
       <button class="btn btn--black mt-5">Cadastrar</button>
 
-      <a href="#" class="text-xs register-link">&lt; Já sou Cadastrado &gt;</a>
+      <router-link to="/" class="text-xs register-link">&lt; Já sou Cadastrado &gt;</router-link>
     </form>
   </div>
 </template>
