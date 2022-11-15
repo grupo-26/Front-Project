@@ -4,7 +4,6 @@ import axios from "axios";
 import VideoPlayer from "@/components/videoplayer/VideoPlayer.vue";
 import NavAula from "@/components/Aula/navAula.vue";
 import Header from "@/components/sections/Header.vue";
-import CourseModule from '../components/CourseModule.vue';
 
 export default {
   name: "Aula",
@@ -205,8 +204,7 @@ export default {
 
 <template>
   <section class="section-aula">
-    <nav class="nav-aula"> 
-    <button class="nav-aula__btn ml-5 mt-[70px]" @click="$router.push('/trilhas')">&lt; Trilhas</button>
+    <nav class="nav-aula mt-[28px]"> 
     <div class="nav-aula__btn-box">
       <button class="nav-aula__btn" @click="actvLessonSub">&lt; voltar</button>
       <button class="nav-aula__btn" @click="actvLessonPlus(this.navSize)">avançar &gt;</button>
@@ -307,6 +305,7 @@ export default {
 
   .active-lesson {
     background-color: #00d6ac;
+    color: black !important;
   }
   .nav-aula__btn-box {
     @apply flex flex-row justify-between;
