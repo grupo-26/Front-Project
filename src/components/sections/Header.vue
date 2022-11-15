@@ -1,11 +1,13 @@
 <script>
 //import Nav from "../Nav/Nav.vue";
 import Profile from "../Profile/UserProfile.vue";
+import Rank from "../Ranking/Ranking.vue";
 
 export default {
   props: ['type', 'logo'],
   components: {
     Profile,
+    Rank,
   },
   data() {
     return {
@@ -26,6 +28,14 @@ export default {
     setHideProfile(value) {
       this.showProfile = value;
     },
+
+    setShowRank() {
+      this.showRank = true;
+    },
+
+    setHideRank(value) {
+      this.showRank = value;
+    },
   },
 }
 
@@ -33,6 +43,7 @@ export default {
 
 <template>
   <Profile @hide="setHideProfile" :class="{'show-profile': showProfile}" class="hidden w-screen h-screen md:w-[360px] fixed right-0 bg-[#f5f5f5]"></Profile>
+  <Rank @hide="setHideRank" class="hidden w-screen h-screen md:w-[360px] fixed right-0 bg-[#f5f5f5]" :class="{'show-rank': showRank}"></Rank>
 
   <p>{{this.$route.params.iduser}}</p>
       <div class="flex flex-col md:flex-row md:justify-between items-center pt-[38px] md:px-[90px] md:pt-[60px] lg:px-[121px] mb-9 md:mb-0">
@@ -55,7 +66,7 @@ export default {
             <span class="roboto text-list-content">Gotas de Motivação</span>
           </div>
 
-          <div class="cursor-pointer flex flex-col items-center mr-4 lg:mr-8">
+          <div  @click="setShowRank" class="cursor-pointer flex flex-col items-center mr-4 lg:mr-8">
             <img class="w-[18px] h-[18px] ld:w-[23px] ld:h-[23px]" src="../../assets/images/rank.png">
             <span class="roboto text-list-content">Ranking Geral</span>
           </div>
@@ -71,6 +82,10 @@ export default {
 
 <style>
   .show-profile {
+    display: block !important;;
+  }
+
+  .show-rank {
     display: block !important;;
   }
 </style>

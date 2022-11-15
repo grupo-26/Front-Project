@@ -21,10 +21,9 @@ export default {
     AchievementsBox,
     AnOutlinedClose,
   },
-  props:['getshow'],
   data() {
     return {
-      showProfile: false
+      
     }
   },
   mounted() {
