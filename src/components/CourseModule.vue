@@ -7,11 +7,15 @@ export default {
   props: {
     title: String,
     modsigla: String,
+    iduser: String,
+    idcurso: String,
   },
   data() {
     return {
       lessonsGeted: {},
       filteredLessons: [],
+      totalLessons: 0,
+      pointsPerLesson: null,
     }
   },
   created() {
@@ -25,13 +29,17 @@ export default {
       for(let i = 0; i < sizeArr; i++) {
         if(res[i].modsigla == this.modsigla) {
           aulaIdCount++;
+          this.totalLessons++;
+          console.log("Total de lições: " + this.totalLessons);
           this.filteredLessons.push({id: res[i].id, aulaid: aulaIdCount, title: res[i].title, modsigla: res[i].modsigla, pts: res[i].pts,time: res[i].time,tipo: res[i].tipo, linkvideo: res[i].linkvideo, linkpdf: res[i].linkpdf });
         }
       }
+      this.pointsPerLesson = 100/this.totalLessons;
+      console.log('pontos por lição: ' + this.pointsPerLesson);
     },
 
-    toLesson(curso ,mod, id) {
-      this.$router.push({name: 'aula', params: {curso: curso, mod: mod, id: id}});
+    toLesson(curso ,mod, id, iduser, idcurso, aulaoriginalid, pts) {
+      this.$router.push({name: 'aula', params: {curso: curso, mod: mod, id: id, iduser: iduser, idcurso: idcurso, aulaoriginalid: aulaoriginalid, pts: pts}});
     },
 
     async getLessonsRoad() {
@@ -44,7 +52,7 @@ export default {
       } catch(e) {
         console.log(e);
       }
-    }
+    },
   },
 }
 
@@ -61,7 +69,7 @@ export default {
 
     <div class="px-[19px] pt-2">
       <ul>
-        <li v-for="lesson in filteredLessons" class="flex justify-between roboto text-list-module-gray" @click="toLesson(this.title, lesson.modsigla, lesson.aulaid)">
+        <li v-for="lesson in filteredLessons" class="flex justify-between roboto text-list-module-gray" @click="toLesson(this.title, lesson.modsigla, lesson.aulaid, this.iduser, this.idcurso, lesson.id, this.pointsPerLesson)">
           <div class="flex">
             <input type="radio" id="" name="" value="" class="mr-2.5">
             <p class="list-content font-[600] whitespace-nowrap tracking-tighter">{{lesson.title}}</p>

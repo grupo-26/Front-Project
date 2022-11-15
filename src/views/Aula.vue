@@ -20,16 +20,32 @@ export default {
       title: null,
       linkToVideo: null,
       lessonID: null,
-      inicialSetVideo: true,
       modSigla: null,
       activeLesson: null,
       activeType: null,
+
+      //relationship datas
+      userID: null,
+      userListaConcluidos: [],
+      userProgresso: null,
+      userProgressoGeral: null,
+
+      cursoID: null,
+      pontosCurso: null,
+      btnGray: false,
     }
   },
   created() {
     this.getLessons();
     this.modsigla = this.$route.params.mod;
     this.lessonID = this.$route.params.id;
+  },
+  mounted() {
+    this.userID = this.$route.params.iduser;
+    this.cursoID = this.$route.params.idcurso;
+    this.pontosCurso = this.$route.params.pts;
+    this.getUserData();
+    console.log('pontos: ' + this.pontosCurso);
   },
   methods: {
     changeTitle(text) {
@@ -41,7 +57,7 @@ export default {
 
       for(let i = 0; i < sizeArr; i++) {
         if(res[i].modsigla == this.modsigla) {
-          this.filteredLessons.push({id: res[i].id, aulaid: i+1, title: res[i].title, modsigla: res[i].modsigla, pts: res[i].pts,time: res[i].time,tipo: res[i].tipo, linkvideo: res[i].linkvideo, linkpdf: res[i].linkpdf });
+          this.filteredLessons.push({id: res[i].id, aulaid: i+1, idconclusao: res[i].idconclusao ,title: res[i].title, modsigla: res[i].modsigla, pts: res[i].pts,time: res[i].time,tipo: res[i].tipo, linkvideo: res[i].linkvideo, linkpdf: res[i].linkpdf });
         }
       }
       this.navSize = this.filteredLessons.length;
@@ -72,13 +88,11 @@ export default {
     },
 
     firstSetLesson() {
-      if(this.inicialSetVideo == true) {
         this.linkToVideo = this.filteredLessons[this.lessonID-1].linkvideo;
         this.title = this.filteredLessons[this.lessonID-1].title;
         this.inicialSetVideo = false;
         this.activeLesson = this.lessonID;
         this.activeType = this.filteredLessons[this.lessonID-1].tipo;
-      }
     },
 
     actvLesson(id) {
@@ -99,12 +113,76 @@ export default {
       }
     },
 
+    getUserData() {
+      //console.log("req: " + "http://localhost:8080/user/" + this.userID);
+      axios
+        //.get("http://localhost:8080/user/1")
+        ({
+          method: 'GET',
+          url: `http://localhost:8080/user/${this.userID}`
+        })
+        .then((res) => {
+          //this.coursesBack = res.data;
+          console.log(res.data);
+          //this.addToProgress(res.data);
+          this.filterUserData(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    
+    filterUserData(res) {
+      this.userListaConcluidos = res.aulascompletas;
+      console.log(res.aulascompletas);
+      //console.log('listaC: ' + this.userListaConcluidos);
+      //console.log('cursoID: ' + this.cursoID);
+      if(this.cursoID == 1) {
+        this.userProgresso = res.progcurso1;
+      } else {
+        this.userProgresso = res.progcurso2;
+      }
+
+      this.userProgressoGeral = res.pontosgeral;
+    },
+
+    setPoints(activeIndex) {
+
+      if(this.validaSetPoints(activeIndex)) {
+        this.userListaConcluidos.push(this.filteredLessons[activeIndex].idconclusao);
+        console.log('lista: ' + this.userListaConcluidos); 
+        console.log(this.filteredLessons[activeIndex].idconclusao);
+
+        if(this.userProgresso < 100) {
+          this.userProgresso += parseFloat(this.pontosCurso);
+          console.log("user progresso: " + this.userProgresso);
+        }
+
+        this.userProgressoGeral += this.filteredLessons[activeIndex].pts;
+        //console.log('pg: ' + this.userProgressoGeral);
+        //console.log('ponto da aula geral: ' + this.filteredLessons[activeIndex].pts);
+        }
+
+    },
+
+    validaSetPoints(activeIndex) {
+      for(let i = 0; i < this.userListaConcluidos.length; i++) {
+        if(this.filteredLessons[activeIndex].idconclusao == this.userListaConcluidos[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+
   },
 }
 </script>
 
 
 <template>
+  <p>Separa: {{activeLesson}}</p>
+  <h1>{{filteredLessons[activeLesson-1]}}</h1>
+
   <section class="section-aula">
     <nav class="nav-aula"> 
     <button class="nav-aula__btn ml-5 mt-[70px]" @click="$router.push('/trilhas')">&lt; Trilhas</button>
@@ -138,10 +216,6 @@ export default {
         Integer molestie metus mi, a aliquet turpis sodales ac. 
       </p>
     </div>
-
-    <div class="flex justify-center mt-6 mb-6">
-      <button class="roboto text-list-content font-bold p-[12px] bg-black text-white">aula concluída</button>
-    </div>
   </div>
 
   <div v-if="this.activeType == 'artigo'" class="px-9 lg:px-16">
@@ -167,10 +241,6 @@ export default {
         tempor lorem. Pellentesque rutrum purus sed lectus tempus malesuada. Aliquam 
         erat volutpat. Maecenas gravida nisi sed rutrum vulputate.
       </p>
-    </div>
-
-    <div class="flex justify-center mt-6 mb-6">
-      <button class="roboto text-list-content font-bold p-[12px] bg-black text-white">aula concluída</button>
     </div>
   </div>
 
@@ -198,17 +268,21 @@ export default {
         erat volutpat. Maecenas gravida nisi sed rutrum vulputate.
       </p>
     </div>
-
-    <div class="flex justify-center mt-6 mb-6">
-      <button class="roboto text-list-content font-bold p-[12px] bg-black text-white">aula concluída</button>
-    </div>
   </div>
+
+    <div class="flex justify-center mt-6 mb-6 btn__finish">
+      <button :class="{'gray': !this.validaSetPoints(this.activeLesson-1)}" @click="setPoints(this.activeLesson-1)" class="roboto text-list-content font-bold p-[12px] bg-black text-white">aula concluída</button>
+    </div>
 
   </section>
 </template>
 
 
 <style scoped>
+
+  .gray {
+    background-color: rgba(129, 125, 125, 0.719);
+  }
 
   .active-lesson {
     background-color: #00d6ac;

@@ -79,8 +79,9 @@ export default {
       this.userProgress.push(res.progcurso1+10);
       this.userProgress.push(res.progcurso2+15);
       this.percentage = this.userProgress[this.cursoID-1];
-    }
-	}
+    },
+
+	},
 }
 </script>
 
@@ -110,7 +111,9 @@ export default {
           :key="module.id"
           :title="module.title"
           :modsigla="module.modsigla"
-          class="mb-[20px]"       
+          :idcurso="this.cursoID"
+          :iduser="this.userID"
+          class="mb-[20px]"     
         >
         </CourseModule>
 			</div>
