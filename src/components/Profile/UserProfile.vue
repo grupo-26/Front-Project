@@ -1,7 +1,7 @@
 <template>
   <section  class="section-profile px-[26px] pt-[26px]">
     <div @click="hide" class="flex justify-end w-full cursor-pointer"><AnOutlinedClose /></div>
-    <ProfileHeader />  
+    <ProfileHeader :firstName="this.pname" />  
     <ProfileProgress />
     <AchievementsBox />
   </section>
@@ -21,6 +21,7 @@ export default {
     AchievementsBox,
     AnOutlinedClose,
   },
+  props: ['pname','email', 'ptsgeral', 'pts1', 'pts2'],
   data() {
     return {
       

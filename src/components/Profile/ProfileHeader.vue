@@ -18,15 +18,14 @@ export default {
   name: "ProfileHeader",
   data() {
     return {
-      namePlaceholder: "João",
-      lastNamePlaceholder: "Silva",
-      mailPlaceholder: "test@mail.com"
+      namePlaceholder: "Filipe",
+      lastNamePlaceholder: "Davi",
+      mailPlaceholder: "davi@gmail.com"
     }
   },
   props: {
     user: {
       firstName: String,
-      lastName: String,
       email: String,
     },
   }

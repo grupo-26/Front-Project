@@ -13,6 +13,7 @@ export default {
       //User Data
       userID: null,
       userProgress: [],
+      toHeader: null,
     }
   },
   created() {
@@ -22,7 +23,6 @@ export default {
   mounted() {
     this.userID = this.$route.params.id;
     this.getUserData();
-    console.log('User id: ' + this.userID);
   },
   methods: {
     toCourse(stack, title, id, idcurso) {
@@ -45,11 +45,12 @@ export default {
         //.get("http://localhost:8080/user/1")
         ({
           method: 'GET',
-          url: `http://localhost:8080/user/${this.userID}`
+          url: `http://localhost:8080/user/${this.$route.params.id}`
         })
         .then((res) => {
           //this.coursesBack = res.data;
-          console.log(res.data);
+          console.log(res.data.id);
+          this.toHeader = this.$route.params.id;
           this.addToProgress(res.data);
         })
         .catch((error) => {
@@ -66,7 +67,7 @@ export default {
 </script>
 
 <template>
-  <Header type="menu" logo="true" />
+  <Header :iduser="this.toHeader" />
 
   <div class="mt-[23px] mb-[23px]">
     <h2 class="text-title-1 font-bold text-center mb-[23px] inter lg:hidden">Escolha sua trilha</h2>
