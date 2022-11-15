@@ -90,13 +90,13 @@ export default {
 	<div>
 		<Header :type="'left'" :logo="'true'"></Header>
 
-		<div class="mt-4 mx-9">
+		<div class="mt-4 md:mt-[40px] lg:mt-[80px] mx-9">
 			<div>
 				<h2 class="text-center inter font-bold text-title-2">{{ $route.params.title }}</h2>
 
 			</div>
 
-			<div class="w-[287px] mx-auto mb-7 mt-[18px]">
+			<div class="w-[287px] mx-auto mb-7 mt-[18px] md:mt-[12px]">
 				<div class=" w-full h-[5px] wrapper-percent bg-gray-300">
 					<div class="bg-[#8c0dad] h-full" :style="percent"></div>
 				</div>
