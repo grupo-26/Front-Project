@@ -88,7 +88,7 @@ export default {
 
 <template>
 	<div>
-		<Header :type="'left'" :logo="'true'"></Header>
+		<Header></Header>
 
 		<div class="mt-4 md:mt-[40px] lg:mt-[80px] mx-9">
 			<div>

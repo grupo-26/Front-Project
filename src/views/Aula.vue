@@ -203,6 +203,8 @@ export default {
 
 
 <template>
+  <Header/>
+  
   <section class="section-aula">
     <nav class="nav-aula mt-[28px]"> 
     <div class="nav-aula__btn-box">

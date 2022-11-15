@@ -67,7 +67,7 @@ export default {
 </script>
 
 <template>
-  <Header :iduser="this.toHeader" />
+  <Header/>
 
   <div class="mt-[23px] mb-[23px]">
     <h2 class="text-title-1 font-bold text-center mb-[23px] inter lg:hidden">Escolha sua trilha</h2>
