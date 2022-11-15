@@ -76,8 +76,8 @@ export default {
         });
     },
     addToProgress(res) {
-      this.userProgress.push(res.progcurso1+10);
-      this.userProgress.push(res.progcurso2+15);
+      this.userProgress.push(res.progcurso1);
+      this.userProgress.push(res.progcurso2);
       this.percentage = this.userProgress[this.cursoID-1];
     },
 

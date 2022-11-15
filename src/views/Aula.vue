@@ -4,6 +4,7 @@ import axios from "axios";
 import VideoPlayer from "@/components/videoplayer/VideoPlayer.vue";
 import NavAula from "@/components/Aula/navAula.vue";
 import Header from "@/components/sections/Header.vue";
+import CourseModule from '../components/CourseModule.vue';
 
 export default {
   name: "Aula",
@@ -81,8 +82,6 @@ export default {
       id = id-1;
       this.title = this.filteredLessons[id].title; 
       this.linkToVideo = this.filteredLessons[id].linkvideo;
-      //console.log('link: ' + this.linkToVideo);
-      //this.actvLesson();
       this.activeType = this.filteredLessons[id].tipo;
       this.actvLesson(id+1);
     },
@@ -122,9 +121,7 @@ export default {
           url: `http://localhost:8080/user/${this.userID}`
         })
         .then((res) => {
-          //this.coursesBack = res.data;
           console.log(res.data);
-          //this.addToProgress(res.data);
           this.filterUserData(res.data);
         })
         .catch((error) => {
@@ -135,8 +132,6 @@ export default {
     filterUserData(res) {
       this.userListaConcluidos = res.aulascompletas;
       console.log(res.aulascompletas);
-      //console.log('listaC: ' + this.userListaConcluidos);
-      //console.log('cursoID: ' + this.cursoID);
       if(this.cursoID == 1) {
         this.userProgresso = res.progcurso1;
       } else {
@@ -159,8 +154,7 @@ export default {
         }
 
         this.userProgressoGeral += this.filteredLessons[activeIndex].pts;
-        //console.log('pg: ' + this.userProgressoGeral);
-        //console.log('ponto da aula geral: ' + this.filteredLessons[activeIndex].pts);
+        this.setPointToBD();
         }
 
     },
@@ -172,7 +166,37 @@ export default {
         }
       }
       return true;
-    }
+    },
+
+    setPointToBD() {
+      if(this.cursoID == 1) {
+        axios
+        .put(`http://localhost:8080/user/${this.userID}`, {
+          pontosgeral: this.userProgressoGeral,
+          progcurso1: this.userProgresso,
+          aulascompletas: this.userListaConcluidos
+        })
+        .then(() => {
+          console.log('Atualizado');
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      } else {
+        axios
+        .put(`http://localhost:8080/user/${this.userID}`, {
+          pontosgeral: this.userProgressoGeral,
+          progcurso2: this.userProgresso,
+          aulascompletas: this.userListaConcluidos
+        })
+        .then(() => {
+          console.log('Atualizado');
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      }
+    },
 
   },
 }
@@ -180,9 +204,6 @@ export default {
 
 
 <template>
-  <p>Separa: {{activeLesson}}</p>
-  <h1>{{filteredLessons[activeLesson-1]}}</h1>
-
   <section class="section-aula">
     <nav class="nav-aula"> 
     <button class="nav-aula__btn ml-5 mt-[70px]" @click="$router.push('/trilhas')">&lt; Trilhas</button>
