@@ -23,7 +23,7 @@ export default {
           <div class="flex items-center">
             <p class="text-[0.75rem] whitespace-nowrap mr-[7px]">{{percentage}}% completo </p>
             
-            <div class="w-full h-[5px] wrapper-percent">
+            <div class="w-full h-[5px] wrapper-percent bg-gray-300">
               <div class="bg-[#8c0dad] h-full" :style="percent"></div>
             </div>
           </div>

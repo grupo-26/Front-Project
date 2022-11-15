@@ -31,7 +31,7 @@ export default createRouter({
 
     {
       name: 'course',
-      path: '/course/:stack/:title',
+      path: '/course/:stack/:title/:iduser/:idcurso',
       component: () => import('@/views/Course.vue'),
       props: true,
     },

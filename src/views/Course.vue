@@ -13,15 +13,28 @@ export default {
       modulesGeted: {},
       filteredModules: [],
       routerStack: null,
-      course:  null
+      course:  null,
+      percentage: 20,
+      userID: null,
+      cursoID: null,
+      userProgress: [],
 		}
 	},
+  computed: {
+    percent() {
+      return 'width: ' + this.percentage + '%';
+    }, 
+  },
 	created() {
     this.getRoadBack();
     this.routerStack = this.$route.params.stack;
     console.log("valor: " + this.tsc);
 	},
-
+  mounted() {
+    this.userID = this.$route.params.iduser;
+    this.cursoID = this.$route.params.idcurso;
+    this.getUserData();
+  },
 	methods: {
     filter(res) {
       let sizeArr = Object.keys(res).length;
@@ -44,6 +57,29 @@ export default {
         console.log(e);
       }
 		},
+
+    getUserData() {
+      //console.log("req: " + "http://localhost:8080/user/" + this.userID);
+      axios
+        //.get("http://localhost:8080/user/1")
+        ({
+          method: 'GET',
+          url: `http://localhost:8080/user/${this.userID}`
+        })
+        .then((res) => {
+          //this.coursesBack = res.data;
+          console.log(res.data);
+          this.addToProgress(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    addToProgress(res) {
+      this.userProgress.push(res.progcurso1+10);
+      this.userProgress.push(res.progcurso2+15);
+      this.percentage = this.userProgress[this.cursoID-1];
+    }
 	}
 }
 </script>
@@ -60,11 +96,11 @@ export default {
 			</div>
 
 			<div class="w-[287px] mx-auto mb-7 mt-[18px]">
-				<div class=" w-full h-[5px] wrapper-percent">
-					<div class=" w3-container w3-blue w3-round-large h-full" :style="percent"></div>
+				<div class=" w-full h-[5px] wrapper-percent bg-gray-300">
+					<div class="bg-[#8c0dad] h-full" :style="percent"></div>
 				</div>
 
-        <p class="text-[0.75rem] whitespace-nowrap mr-[7px]">{{90}}% completo </p>
+        <p class="text-[0.75rem] whitespace-nowrap mr-[7px]">{{this.percentage}}% completo </p>
 			</div>
 
 

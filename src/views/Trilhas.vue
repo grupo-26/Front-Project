@@ -25,8 +25,8 @@ export default {
     console.log('User id: ' + this.userID);
   },
   methods: {
-    toCourse(stack, title) {
-      this.$router.push({ name: 'course', params: { stack: stack, title: title } });
+    toCourse(stack, title, id, idcurso) {
+      this.$router.push({ name: 'course', params: { stack: stack, title: title, iduser: id, idcurso: idcurso } });
     },
     getCourses() {
       axios
@@ -68,12 +68,11 @@ export default {
 <template>
   <Header type="menu" logo="true" />
 
-  <div class="mt-[23px]">
+  <div class="mt-[23px] mb-[23px]">
     <h2 class="text-title-1 font-bold text-center mb-[23px] inter">Escolha sua trilha</h2>
-    <h1>{{this.userProgress}}</h1>
     <div class="courses-wrap">
       <ListCourses v-for="(course, index) in coursesBack" :key="course.id" :title="course.title" :percentage="this.userProgress[index]" class="course"
-        @tocourse="toCourse(course.stack, course.title)">
+        @tocourse="toCourse(course.stack, course.title, this.userID, course.id)">
       </ListCourses>
     </div>
   </div>
