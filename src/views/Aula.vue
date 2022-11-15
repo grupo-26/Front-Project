@@ -210,7 +210,7 @@ export default {
       <button class="nav-aula__btn" @click="actvLessonPlus(this.navSize)">avançar &gt;</button>
     </div>
 
-    <div class="mx-9 roboto italic text-list-content mt-[21px]">
+    <div class="mx-9 roboto italic text-list-content mt-[21px] md:text-[14px] lg:mt-[0]">
       <h1>{{this.$route.params.curso}}</h1>
     </div>
 
@@ -222,14 +222,14 @@ export default {
   
   <div v-if="this.activeType == 'video'" class="mx-9">
     <div class="mt-[30px] mb-[1rem]">
-      <h2 class="roboto font-bold text-[1rem]">{{this.title}}</h2>
+      <h2 class="roboto font-bold text-[1rem] text-list-module-gray md:text-[1.5rem]">{{this.title}}</h2>
     </div>
 
     <VideoPlayer :link="`${linkToVideo}`" class="mb-[30px]"/>
     
     <div>
-      <p class="roboto font-bold text-list-content lg:text[14px]">Sobre o vídeo: </p>
-      <p class="roboto font-list-content text-list-content lg:text[14px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis quam, 
+      <p class="roboto font-bold text-list-content md:text-[14px] md:mb-4">Sobre o vídeo: </p>
+      <p class="roboto font-list-content text-list-content md:text-[14px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce turpis quam, 
         varius in quam vitae, luctus lacinia massa. Maecenas aliquet sed nunc id dapibus. 
         Vivamus pretium accumsan mauris ac convallis. 
         Integer molestie metus mi, a aliquet turpis sodales ac. 
@@ -289,7 +289,7 @@ export default {
     </div>
   </div>
 
-    <div class="flex justify-center mt-6 mb-6 btn__finish">
+    <div class="flex justify-center px-9 mt-6 md:mt-10 md:mb-8 mb-6 btn__finish md:justify-start">
       <button :class="{'gray': !this.validaSetPoints(this.activeLesson-1)}" @click="setPoints(this.activeLesson-1)" class="roboto text-list-content font-bold p-[12px] bg-black text-white">aula concluída</button>
     </div>
 
