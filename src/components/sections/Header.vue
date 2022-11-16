@@ -1,9 +1,7 @@
 <script>
-//import Nav from "../Nav/Nav.vue";
 import Profile from "../Profile/UserProfile.vue";
 import Rank from "../Ranking/Ranking.vue";
 import Gotas from "../motivacional/gotas.vue";
-import axios from "axios";
 
 export default {
   props: ['iduser'],
@@ -31,7 +29,6 @@ export default {
 
     setShowProfile() {
       this.showProfile = true;
-      this.headerGetUser();
     },
 
     setHideProfile(value) {
@@ -52,25 +49,6 @@ export default {
 
     setHideGotas(value) {
       this.showGotas = value;
-    },
-
-    headerGetUser() {
-      //console.log("req: " + "http://localhost:8080/user/" + this.userID);
-      axios
-        //.get("http://localhost:8080/user/1")
-        ({
-          method: 'GET',
-          url: `http://localhost:8080/user/${this.iduser}`
-        })
-        .then((res) => {
-          //this.requisicao = res.data;
-          console.log('Header data');
-          console.log(res.data);
-          this.filterToHeader(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
     },
   },
 }
